@@ -1,0 +1,315 @@
+/* PROPRIEDADES CSS 
+ 
+position: static / absolute / fixed; 
+
+z-index: 1; -> prioriza elemento
+
+justify-content -> flex-start (default) flex-end center space-between space-around space-evenly >> horizontal
+align-items -> flex-start flex-end center baseline stretch (default) - vertical
+flex-direction -> row (default) row-reverse column column-reverse 
+order -> <integer> (... -1, 0 (default), 1, ...)
+align-self -> flex-start flex-end center baseline stretch
+flex-wrap -> nowrap (default) wrap wrap-reverse
+flex-flow -> <flex-direction> <flex-wrap>
+align-content -> flex-start flex-end center space-between space-around space-evenly stretch (default)
+
+*/
+:root {
+  --white-color: #fff;
+  --black-color: #000;
+  --gray-color: #d6cbcb;
+  --gap: 3rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  height: 100%;
+  font-size: 62.5%;
+}
+
+body{
+  height: 100%;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.6rem;
+  color: var(--black-color)
+}
+
+h1, h2, h3, h4, h5, h6, a, p {
+  font-family: "Nunito", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  text-align: center;
+}
+
+h1 {
+  font-size: 6rem;
+}
+
+h2 {
+  font-size: 5.5rem;
+  margin-bottom: 5rem;
+  line-height: 0.9;
+}
+
+h5 {
+  font-size: 4rem;
+}
+
+a {
+  text-decoration: none;
+  font-weight: 1000;
+}
+
+p {
+  margin-bottom: var(--gap);
+}
+
+
+/* Backgrounds */
+.black-bg {
+  background-image: url(../../img/black-bg.png);
+  background-size: cover;
+  background-position: center center;
+  color: var(--white-color);
+}
+
+.white-bg {
+  background-image: url(../../img/white-bg.png);
+  background-size: cover;
+  background-position: center center;
+  color: var(--black-color);
+}
+
+.black-bg a {
+  color: var(--white-color);
+}
+
+.white-bg a {
+  color: var(--black-color);
+}
+
+
+/* Conteúdo Geral */
+#home, #about, #projects, #contact {
+  max-width: 90rem;
+  height: 70%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.highlight {
+  font-style: italic;
+  text-decoration: underline;
+}
+
+/* Menu de Navegação */
+#nav {
+  max-width: 90rem;
+  height: 10%;
+  margin: 0 auto;
+  padding: var(--gap);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-content ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+
+.nav-content ul li a {
+  display: block;
+  padding: 0.5rem;
+  transition: outline 0.3s ease;
+  border-radius: 20px;
+}
+
+.black-bg .nav-content a:hover {
+  border-radius: 20px;
+  outline: 3px dashed var(--white-color);
+}
+
+.white-bg .nav-content a:hover {
+  border-radius: 20px;
+  outline: 3px dashed var(--black-color);
+}
+
+/* Contéudo "Home" */
+.home-container {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: var(--gap);
+}
+
+.text-container p {
+  line-height: 1.5;
+  color: var(--white-color);
+  font-size: larger;
+  text-align: left;
+} 
+
+.image-container img {
+  max-width: 100%;
+  min-height: auto;
+} 
+
+/* Conteudo "About" */
+.about-container {
+  width: 100%;
+
+}
+
+.about-container p {
+  line-height: 1.5;
+  font-size: larger;
+  text-align: center;
+}
+
+/* Icones */
+.icons img {
+  width: 6rem;
+  height: 6rem;
+}
+
+/* Conteúdo "Projects" */
+.projects-container {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-gap: var(--gap);
+  justify-items: center;
+  align-items: center;
+}
+
+.items-container {
+  border: 0.5rem solid black;
+  border-block-end-color: #c0c0c0;
+  writing-mode: horizontal-tb;
+  transition: transform 0.5s ease;
+}
+
+.items-container:hover {
+  transform: scale(1.2);
+}
+
+/* Conteúdo "Contact" */
+.contact-container {
+  height: 100%;
+  display: grid;
+  grid-template-rows: 0.5fr 2.5fr;
+}
+
+.contact-text {
+  text-align: center;
+}
+.contact-text h5{
+  font-weight: 800;
+}
+
+.contact-template {
+  background-color: var(--gray-color);
+  border: 1px solid white;
+  border-radius: 1.25rem;
+  box-shadow: 0px 0px 1.25rem rgba(0,0,0,0.75);
+  display: grid;
+  grid-template-columns: 45% 10% 45%;
+}
+
+.contact-form {
+  margin: 0 auto;
+}
+
+/* Formulário */
+.contact-form form{
+  display: flex;
+  flex-direction: column;
+  padding-top: var(--gap);
+}
+
+.contact-form label {
+  display: block;
+  margin-top: 1rem;
+  letter-spacing: 2px;
+  padding-left: 10px;
+  font-family: "Nunito", sans-serif;
+  font-weight: 700;
+}
+
+.contact-form input, textarea {
+  background: rgba(255, 255, 255, 0.5);
+  line-height: 3rem;
+  border-radius: 1.25rem;
+  padding-left: 1rem;
+  width: 30rem;
+  border: 1px solid var(--gray-color);
+}
+
+.contact-form input:hover,
+textarea:hover{
+  background: var(--white-color);
+  border-color: var(--white-color);
+}
+.contact-form input:focus,
+textarea:focus {
+  outline: none;
+  background: var(--white-color);
+  border-color: var(--white-color);
+  box-shadow: 0px 0px 1.25rem rgba(0,0,0,0.75);
+}
+
+.contact-form button {
+  background: var(--gray-color);
+  height: 4rem;
+  line-height: 4rem;
+  border-radius: 4rem;
+  border: none;
+  margin: 10px 0px;
+  box-shadow: 0px 0px 5px rgba(0,0,0,0.75);
+  transition: transform 0.5s ease;
+}
+
+.contact-form button:focus {
+  transform: scale(1.2);
+}
+
+/* Linha que divide o Template */
+.line-style {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.line {
+  height: 80%; 
+  width: 1px;
+  background-color: #000; 
+}
+
+/* icones de contato */
+.contact-icons {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+
+.contact-icons img {
+  width: 4rem;
+  height: 4rem;
+  transition: transform 0.5s ease;
+}
+
+.contact-icons img:hover{
+  transform: scale(1.3);
+}
